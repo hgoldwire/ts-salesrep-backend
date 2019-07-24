@@ -13,6 +13,8 @@ Container.set(UserDao, new FakeUserDao());
 
 const app = createExpressServer({
     controllers: [UserController], // we specify controllers we want to use
+    classTransformer: true,
+    validation: true,
 });
 
 app.use(logger('dev'));

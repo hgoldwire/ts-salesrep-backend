@@ -1,5 +1,15 @@
-import {Param, Body, Get, Post, Put, Delete, JsonController} from 'routing-controllers';
+import {Body, Get, JsonController, Post} from 'routing-controllers';
 import {UserDao} from '../daos/User/UserDao';
+import {Equals} from 'class-validator';
+
+export class GetUserRequest {
+    @Equals(357437875835)
+    public userId: number;
+
+    constructor(userId: number) {
+        this.userId = userId;
+    }
+}
 
 @JsonController()
 export class UserController {
@@ -7,32 +17,16 @@ export class UserController {
     constructor(private users: UserDao) {
     }
 
+    // get one class
+    @Post('/goat')
+    private getOne(@Body() getUserRequest: GetUserRequest) {
+        return this.users.getAll().then((users) => users.find((user) => user.id === getUserRequest.userId));
+    }
+
     @Get('/users')
     private getAll() {
         // return 'This action returns all users';
         return this.users.getAll();
-    }
-
-    @Get('/users/:id')
-    private getOne(@Param('id') id: number) {
-        return {
-            msg: 'This action returns user #' + id,
-        };
-    }
-
-    @Post('/users')
-    private post(@Body() user: any) {
-        return 'Saving user...';
-    }
-
-    @Put('/users/:id')
-    private put(@Param('id') id: number, @Body() user: any) {
-        return 'Updating a user...';
-    }
-
-    @Delete('/users/:id')
-    private remove(@Param('id') id: number) {
-        return 'Removing user...';
     }
 
 }
