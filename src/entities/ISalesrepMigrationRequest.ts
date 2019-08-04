@@ -1,5 +1,3 @@
-import {IUser} from "./User";
-
 export interface ISalesrepMigrationRequest {
     uuid: string;
     user_id: string;
