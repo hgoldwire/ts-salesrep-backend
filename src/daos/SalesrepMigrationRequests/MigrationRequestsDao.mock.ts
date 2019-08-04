@@ -1,4 +1,4 @@
-import {ISalesrepMigrationRequest, SalesrepMigrationRequest} from '@entities';
+import {SalesrepMigrationRequest} from '@entities';
 import {ISalesrepMigrationRequestsDao} from './ISalesrepMigrationRequestsDao';
 import {MockRealms} from '../MockRealms/Realms.mock';
 
@@ -7,8 +7,8 @@ export class SalesrepMigrationRequestsDao extends MockRealms implements ISalesre
     public async getAll(): Promise<SalesrepMigrationRequest[]> {
         try {
             const db = await super.openDb();
-            const objects: IterableIterator<SalesrepMigrationRequest & Realm.Object> = db.objects<SalesrepMigrationRequest>('SalesrepMigrationRequest').values();
-            return db.objects<SalesrepMigrationRequest>('SalesrepMigrationRequest').map((f) => f);
+            const objects = db.objects<SalesrepMigrationRequest>('SalesrepMigrationRequest');
+            return Array.from(objects);
         } catch (err) {
             throw err;
         }

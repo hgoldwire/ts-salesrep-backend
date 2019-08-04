@@ -12,11 +12,11 @@ export class MockRealms {
         const migrations = migrationsJson.map((migration) => new SalesrepMigrationRequest(migration));
         realm.write(() => {
             migrations.forEach((smr) => {
-                realm.create('SalesrepMigrationRequest', smr, UpdateMode.All)
+                realm.create<SalesrepMigrationRequest>('SalesrepMigrationRequest', smr, UpdateMode.All)
             });
         });
         return realm;
-    };
+    }
 
     protected async openDb(): Promise<Realm> {
         const config: Realm.Configuration = {

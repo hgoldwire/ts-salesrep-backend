@@ -1,4 +1,4 @@
-import {ISalesrepMigrationRequest, SalesrepMigrationRequest} from '@entities';
+import {SalesrepMigrationRequest} from '@entities';
 
 export interface ISalesrepMigrationRequestsDao {
     getAll: () => Promise<SalesrepMigrationRequest[]>;
