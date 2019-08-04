@@ -10,7 +10,7 @@ export * from '../swagger/CallLogFormResponse';
 export * from '../swagger/CreateUserRequest';
 export * from '../swagger/CreateUserResponse';
 export * from '../swagger/GetProviderResponse';
-export * from '../swagger/MigrateSalesrepRequest';
+export * from './MigrateSalesrepRequest';
 export * from '../swagger/PriorityIndexRequest';
 export * from '../swagger/PriorityIndexResponse';
 export * from '../swagger/SalesRepRealmsResponse';
