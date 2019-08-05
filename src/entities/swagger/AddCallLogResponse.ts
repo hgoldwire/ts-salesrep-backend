@@ -9,8 +9,8 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import {CallLog} from '../model/CallLog';
-import {Header} from '../model/Header';
+import {CallLog} from '../model';
+import {Header} from '../model';
 
 export interface AddCallLogResponse {
     callLog?: CallLog;

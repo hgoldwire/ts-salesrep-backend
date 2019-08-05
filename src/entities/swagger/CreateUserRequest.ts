@@ -9,7 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import {Header} from '../model/Header';
+import {Header} from '../model';
 
 export interface CreateUserRequest {
     header: Header;

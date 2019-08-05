@@ -9,10 +9,9 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import {Header} from '../model/Header';
-import {Provider} from '../model/Provider';
+import {Header, Provider} from '../model';
 
 export interface GetProviderResponse {
     header: Header;
-    providers?: Array<Provider>;
+    providers?: Provider[];
 }
